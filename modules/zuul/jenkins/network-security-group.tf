@@ -1,5 +1,5 @@
-resource "azurerm_network_security_group" "nginx" {
-    name                = "${terraform.workspace}-nginx-nsg"
+resource "azurerm_network_security_group" "jenkins" {
+    name                = "${terraform.workspace}-jenkins-nsg"
     location            = var.resource_group.location
     resource_group_name = var.resource_group.name
     
@@ -11,7 +11,7 @@ resource "azurerm_network_security_group" "nginx" {
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "22"
-        source_address_prefix      = "*"
+        source_address_prefix      = "213.165.146.130"
         destination_address_prefix = "*"
     }
     security_rule {

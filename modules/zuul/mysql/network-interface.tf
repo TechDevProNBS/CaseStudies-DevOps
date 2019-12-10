@@ -7,7 +7,7 @@ resource "azurerm_network_interface" "mysql" {
 
   ip_configuration {
     name                          = "${terraform.workspace}-mysql"
-    subnet_id                     = azurerm_subnet.mysql.id
+    subnet_id                     = azurerm_subnet.database.id
     private_ip_address_allocation = "Dynamic"
   }
 }

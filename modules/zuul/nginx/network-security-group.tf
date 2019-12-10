@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "nginx" {
     name                = "${terraform.workspace}-nginx-nsg"
-    location            = var.resource_group.location
-    resource_group_name = var.resource_group.name
+    location            = azurerm_resource_group.location
+    resource_group_name = azurerm_resource_group.name
     
     security_rule {
         name                       = "SSH"

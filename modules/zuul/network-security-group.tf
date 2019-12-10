@@ -11,7 +11,7 @@ resource "azurerm_network_security_group" "zuul" {
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "22"
-        source_address_prefix      = "*"
+        source_address_prefix      = "213.165.146.130"
         destination_address_prefix = "*"
     }
 }

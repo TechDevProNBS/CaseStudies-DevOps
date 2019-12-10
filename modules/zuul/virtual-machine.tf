@@ -35,7 +35,7 @@ resource "azurerm_virtual_machine" "zuul" {
 		type = "ssh"
 		user = var.admin_user
 		private_key = file(pathexpand("~/.ssh/id_rsa.pub"))
-		host = azurerm_public_ip.nginx.fqdn
+		host = azurerm_public_ip.zuul.fqdn
   }
 }
 

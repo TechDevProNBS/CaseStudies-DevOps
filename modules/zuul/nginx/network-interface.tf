@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "nginx" {
   name                = "${terraform.workspace}-nginx-nic"
-  location            = var.resource_group.location
-  resource_group_name = var.resource_group.name
+  location            = azurerm_resource_group.location
+  resource_group_name = azurerm_resource_group.name
   network_security_group_id = azurerm_network_security_group.nginx.id
 
 

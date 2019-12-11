@@ -36,4 +36,15 @@ resource "azurerm_network_security_group" "jenkins" {
         source_address_prefix      = "*"
         destination_address_prefix = "*"
     }
+    security_rule {
+        name                       = "jenkins"
+        priority                   = 1004
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "8080"
+        source_address_prefix      = "213.165.146.130"
+        destination_address_prefix = "*"
+    }
 }

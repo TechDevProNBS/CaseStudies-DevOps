@@ -34,7 +34,7 @@ resource "azurerm_virtual_machine" "nginx" {
 	connection {
 		type = "ssh"
 		user = var.admin_user
-		private_key = file(pathexpand("~/.ssh/id_rsa.pub"))
+		private_key = file(pathexpand("~/.ssh/id_rsa"))
 		host = azurerm_public_ip.nginx.fqdn
   }
   provisioner "remote-exec" {

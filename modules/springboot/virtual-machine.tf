@@ -34,7 +34,7 @@ resource "azurerm_virtual_machine" "springboot" {
 	connection {
 		type = "ssh"
 		user = var.admin_user
-		private_key = file(pathexpand("~/.ssh/id_rsa.pub"))
+		private_key = file(pathexpand("~/.ssh/id_rsa"))
 		host = azurerm_public_ip.springboot.fqdn
   }
 }

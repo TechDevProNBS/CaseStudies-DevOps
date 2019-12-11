@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "nginx" {
   location              = var.resource_group.location
   resource_group_name   = var.resource_group.name
   network_interface_ids = [azurerm_network_interface.nginx.id]
-  vm_size               = "Standard_B1s"
+  vm_size               = "Standard_B1ms"
 
   storage_image_reference {
     publisher = "Canonical"

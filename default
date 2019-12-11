@@ -6,6 +6,10 @@ server {
 
 	server_name_;
 
+	location /record {
+		proxy_pass https://PLACEHOLDER;
+	}
+
 	location / {
 		proxy_pass https://home_page_ip:tbd;
 	}

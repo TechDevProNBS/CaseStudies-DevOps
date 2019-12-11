@@ -21,7 +21,6 @@
   - name: configure TLS
     shell: "certbot certonly --nginx -n --agree-tos --email test@gmail.com --domains '{{ inventory_hostname }}'"
     when: certificate.stat.exists == False
-  - name: configure nginx
     template:
       src: ../resources/default
       dest: /etc/nginx/sites-available/default

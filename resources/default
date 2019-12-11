@@ -1,0 +1,16 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	index index.html index.nginx-debian.html
+
+	server_name_;
+
+	location /record {
+		proxy_pass https://PLACEHOLDER;
+	}
+
+	location / {
+		proxy_pass https://home_page_ip:tbd;
+	}
+}

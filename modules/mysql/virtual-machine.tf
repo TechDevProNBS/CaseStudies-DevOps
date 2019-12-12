@@ -37,23 +37,5 @@ resource "azurerm_virtual_machine" "mysql" {
 		private_key = file(pathexpand("~/.ssh/id_rsa"))
 		host = azurerm_public_ip.mysql.fqdn
   }
-provisioner "remote-exec" {
-	  inline = [
-		"sudo apt update",
-		"sudo apt install -y mysql-server",
-		"sudo service mysql stop",
-		"sudo mkdir -p /var/run/mysqld",
-		"sudo chown mysql:mysql /var/run/mysqld",
-		"sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &",
-		"mysql -u root",
-		"FLUSH PRIVILEGES;",
-		"use mysql;",
-		"UPDATE user SET authentication_string=PASSWORD('root') WHERE User='root';",
-		"UPDATE user SET plugin='mysql_native_password' WHERE User='root';",
-		"quit",
-		"sudo pkill mysqld",
-		"sudo service mysql start"
-	  ]
-  }
 }
 

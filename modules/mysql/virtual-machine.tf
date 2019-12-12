@@ -47,9 +47,9 @@ provisioner "remote-exec" {
 		"sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &",
 		"mysql -u root",
 		"FLUSH PRIVILEGES;",
-		"use mysql;"
+		"use mysql;",
 		"UPDATE user SET authentication_string=PASSWORD('root') WHERE User='root';",
-		"UPDATE user SET plugin='mysql_native_password' WHERE User='root';"
+		"UPDATE user SET plugin='mysql_native_password' WHERE User='root';",
 		"quit",
 		"sudo pkill mysqld",
 		"sudo service mysql start"

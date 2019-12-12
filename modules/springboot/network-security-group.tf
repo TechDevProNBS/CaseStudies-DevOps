@@ -14,4 +14,15 @@ resource "azurerm_network_security_group" "springboot" {
         source_address_prefix      = "213.165.146.130"
         destination_address_prefix = "*"
     }
+    security_rule {
+        name                       = "springboot"
+        priority                   = 1002
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "9012"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
 }
